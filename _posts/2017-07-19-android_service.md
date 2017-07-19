@@ -16,8 +16,11 @@ Android有两种方式使用Service：StartService和bindService。
 >startService启动的服务会涉及Service的的onStartCommand回调方法，而通过bindService启动的服务会涉及Service的onBind、onUnbind等回调方法。
 
 Service的生命周期，从被创建开始，到被销毁结束。下面来看看这两种方式下由什么不同。
+
 贴上一张网上到处可见的图：
-![](/images/posts/android/android_service.png)
+
+![android service](/images/posts/android/android_service.png)
+
 通过一系列的生命回调函数，我们可以监测Service状态的变化，在适当的时候执行相关的操作。Service的整体生命时间从onCreate被调用开始，到onDestory方法返回为止。而其积极活动的生命时间却有所不同。对于StartService，活动生命周期和整个生命周期是一样的，但是对于bindService，活动生命周期是在onUnbind方法返回后就结束了。
 所以如果所写的Service如果是一个纯粹的绑定Service，则不需要管理它的生命周期，在客户端解绑以后会被系统自动销毁。而如果是实现了**onStartCommand()**的回调方法，则必须显示停止Service。
 
@@ -95,7 +98,9 @@ public class TestService extends Service {
 }
 ```
 运行程序的输出结果如下: 
-![](/images/posts/android/android_service2.png)
+
+![run](/images/posts/android/android_service2.png)
+
 可以看到，连续调用了三次startService方法之后，只触发了一次onCreate回调方法，触发了三次onStartCommand方法，在onStartCommand中我们可以读取到通过startService方法传入的Intent对象，并且这三次的startId都不同，分别是1,2,3，每次调用startService都会自动分配一个startId，startId可以用来区分不同的startService的调用，一般情况下startId都是从1开始计数，以后每次调用startService之后startId自动加一递增。
 startService()方法和stopService()方法在执行完后立即返回了，也就是这两个方法都不是阻塞式的，启动service和停止service都是异步操作。
 
