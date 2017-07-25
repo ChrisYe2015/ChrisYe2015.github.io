@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [转]Android Studio 断点调试
+title: Android Studio 断点调试
 categories: Android
 description: Android Studio 断点调试
 keywords: Andorid, Android Studio,断点调试
