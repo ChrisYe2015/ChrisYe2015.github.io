@@ -1,10 +1,11 @@
 ---
 layout: post
-title: Android Studio 断点调试
+title: [转]Android Studio 断点调试
 categories: Android
 description: Android Studio 断点调试
 keywords: Andorid, Android Studio,断点调试
 ---
+原文地址：http://blog.csdn.net/wzy_1988/article/details/51778755
 
 Android Studio包含一个debugger程序，可以在模拟器和真机上调试android应用。比如设置断点，在运行时去检查变量和表达式的值。
 
