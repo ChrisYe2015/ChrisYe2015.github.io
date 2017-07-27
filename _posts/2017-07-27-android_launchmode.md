@@ -117,10 +117,10 @@ singleInstance适用于需要和应用分离的页面，如闹铃提醒，将闹
 - **FLAG_ACTIVITY_BROUGHT_TO_FRONT**:
 这个标志一般不是由程序代码设置，而是在LaunchMode中设置SingleTask模式时系统帮你设定
 
--**FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET** :
+- **FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET** :
 如果一个Intent中包含此属性，则它转向的那个activity以及在那个activity之上的所有activity都会在task重置时被清除出task。当我们将一个后台的task重新回到前台时，系统会在特定的情况下为这个动作附带一个FLAG_ACTIVITY_RESET_TASK_IF_NEEDED标记，意味着必要时重置task，这时FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET就会生效。
 
--**FLAG_ACTIVITY_RESET_TASK_IF_NEEDED**:
+- **FLAG_ACTIVITY_RESET_TASK_IF_NEEDED**:
 这个标记在以下情况下会生效：1.启动Activity时创建新的task来放置Activity实例；2.已存在的task被放置于前台。系统会根据affinity对指定的task进行重置操作，task会压入某些Activity实例或移除某些Activity实例。
 
 - **FLAG_ACTIVITY_NO_HISTORY** :
