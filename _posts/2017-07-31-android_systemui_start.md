@@ -234,4 +234,4 @@ protected void inflateStatusBarWindow(Context context) {
 super_status_bar就是整个statusbar的根布局，对应的是StatusBarWindowView这个自定义布局。
 
 到这里就大致将SystemUI statusbar的初始化加载过程过了一遍，下面是一个UML时序图：
-![](/images/posts/android/status_bar1.jpg)
+![](/images/posts/android/status_bar1.png)
