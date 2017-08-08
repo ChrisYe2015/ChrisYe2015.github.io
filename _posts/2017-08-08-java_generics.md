@@ -107,7 +107,9 @@ Pair<String, Integer> pair = new Pair<String, Integer>();
 
 下面来介绍一个实例：
 我们有一个抽象类：Person，其有两个子类Student和Staff，其中Person中有一个自定义类Info用于记录Person的信息，而Student和Staff中也继承了这个类并丰富了其信息。在获取这两个类的信息时，按照正常的写法，我们需要在每一个子类中分别重写获取信息函数。这里我们就使用泛型，并限定泛型的类型为实现了这个接口的类，这样的话，我们就不用分别重写对应信息的获取，如下代码：
-Person
+
+Person类：
+
 ```
 public abstract class Person<T extends Person.Info> {
     protected T mInfo;
@@ -130,9 +132,11 @@ public abstract class Person<T extends Person.Info> {
     }
 }
 ```
+
 可以看到，T限定为类的信息类型，也就是具体实现类中信息类型，而getInfo也就返回对应类型的info。
 
-Student：
+Student类：
+
 ```
 public class Student extends Person<Student.StudentInfo>{
     private StudentInfo mStudentInfo;
@@ -157,7 +161,8 @@ public class Student extends Person<Student.StudentInfo>{
 }
 ```
 
-Staff：
+Staff类：
+
 ```
 public class Staff extends Person<Staff.StaffInfo>{
 
@@ -183,6 +188,7 @@ public class Staff extends Person<Staff.StaffInfo>{
 ```
 
 使用：
+
 ```
 public class MainActivity extends AppCompatActivity {
     private Button bt1;
@@ -218,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+
 输出如下：
 ![](/images/posts/android/java_泛型.png)
 
