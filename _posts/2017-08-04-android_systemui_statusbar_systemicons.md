@@ -451,3 +451,6 @@ setIcon：
     }
 ```
 我们看到最终也是调用StatusBarIconController的setIcon函数。
+
+我们来总结一下系统状态图标的流程，如下时序图：
+![](/images/posts/android/status_bar3.png)
