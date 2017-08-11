@@ -234,7 +234,7 @@ protected void inflateStatusBarWindow(Context context) {
 super_status_bar就是整个statusbar的根布局，对应的是StatusBarWindowView这个自定义布局。
 
 到这里就大致将SystemUI statusbar的初始化加载过程过了一遍，，总结一下和SystemUI启动相关的类，如下类图：
-![](/images/posts/android/status_bar4.jpg)
+![](/images/posts/android/status_bar4.png)
 
 其中SystemUIService为SystemUI暴露给外界的Service，主要让SystemSever可通过启动这个Service来启动SystemUI。SystemUIApplication为SystemUI的程序入口，是自定义的Application，其里面主要包含了一些列继承于SystemUI的类。SystemUI是一个抽象类，主要定义了Start、onBootCompleted等方法，对于继承于systemUI的类，我们则可认为是SystemUI中定义的Service类。其中和StatusBar相关的类就是SystemBars。在SystemBar中，有一个关键变量为BaseStatusBar，这个类也是继承于SystemUI，其主要就是StatusBar的加载Service，状态栏对应有TV版和Phone版，PhoneStatusBar就是Phone的实现。PhoneStatusBar继承于BaseStatusBar，实现和重写了里面定义的很多方法。
 
