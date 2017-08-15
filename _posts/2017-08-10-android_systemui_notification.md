@@ -182,3 +182,6 @@ keywords: SystemUI, Android SystemUI 状态栏——通知区域
 - 通知是否设置可见
 
 在该函数中，维护了两个ArrayList，分别用于记录新增显示的通知和需要移除的通知，然后从通知信息中获取icon并在mNotificationIcons添加或移除。要注意的是，具体的icon view的实现为IconMerger，这是一个自定义类，继承于LinearLayout，在每次添加view的时候即onLayout，会check图标是否已经溢出，然后设置显示成“更多图标”。这里还需要注意的是notification_icon_area和system_icon_area是以权重分配，即优先要显示完整system_icon_area，也是通过check设置的。
+
+总结一下通知更新的流程，如下时序图：
+![](/images/posts/android/status_bar5.png)

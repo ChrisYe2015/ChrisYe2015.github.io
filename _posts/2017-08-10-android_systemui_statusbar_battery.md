@@ -335,3 +335,6 @@ mBatteryController.addStateChangedCallback(this);
 ![](/images/posts/android/signal_status_bar3.png)
 
 BatteryControllerImpl为电量的监听管理类，其实现了BatteryController接口，其中包括注册和移除回调，设置省电模式等。BatteryClusterView为电量区域的具体实现布局，其实现了BatteryController中定义的BatteryStateChangeCallback回调，并将自己作为回调注册到BatteryControllerImpl中。当BatteryControllerImpl监听到相关状态变化的时候，会执行回调并最终调用BatteryClusterView中实现的相关方法。BatteryMeterView为电量的具体实现View，其里面有一个BatteryMeterDrawable类，是电量的具体绘制类，最终会根据具体的电量和状态绘制对应比例的图形。
+
+更新电量时序图如下：
+![](/images/posts/android/signal_status_bar6.png)
