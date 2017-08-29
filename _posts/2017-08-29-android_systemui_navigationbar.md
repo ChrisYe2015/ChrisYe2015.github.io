@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android SystemUI 导航栏
-categories: Android
+categories: SystemUI
 description: Android SystemUI 导航栏
 keywords: Android,SystemUI,navigationbar,导航栏
 ---
