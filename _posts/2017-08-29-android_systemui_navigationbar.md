@@ -574,3 +574,10 @@ getDefaultLayout是获取一串定义的字符串：
     }
 ```
 至此，导航栏就已经添加创建完毕。
+
+下面总结一下导航栏的控件树及其加载过程。
+整体控件树如下：
+![](/images/posts/android/android_navigation_bar2.png)
+
+加载过程如下：
+![](/images/posts/android/android_navigation_bar.png)

@@ -314,7 +314,37 @@ super.start()即调用父类BaseStatusBar中的Start函数，主要实现如下�
     }
 
 ```
-StatusBarManagerService维护了一个准许显示在系统状态区的预定义的意图列表，这个列表由framework/base/coe/res/res/values/config.xml中的字符串数组资源config_statusBarIcons定义，StatusBarManagerService会拒绝使用者提交上述预定义的意图之外的图标。
+StatusBarManagerService维护了一个准许显示在系统状态区的预定义的意图列表，这个列表由framework/base/coe/res/res/values/config.xml中的字符串数组资源config_statusBarIcons定义，StatusBarManagerService会拒绝使用者提交上述预定义的意图之外的图标。定义如下：
+```
+    <string-array name="config_statusBarIcons">
+        <item><xliff:g id="id">@string/status_bar_rotate</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_headset</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_data_saver</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_managed_profile</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_ime</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_sync_failing</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_sync_active</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_cast</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_hotspot</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_location</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_bluetooth</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_nfc</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_tty</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_speakerphone</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_zen</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_mute</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_volume</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_wifi</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_cdma_eri</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_data_connection</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_phone_evdo_signal</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_phone_signal</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_battery</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_alarm_clock</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_secure</xliff:g></item>
+        <item><xliff:g id="id">@string/status_bar_clock</xliff:g></item>
+    </string-array>
+```
 >config_statusBarIcons里面虽然定义了phone_signal、battery、clock等意图，但在状态栏这几个都不属于系统状态图标区，他们由SystemUI中的SignalCluster、BatterController和Clock单独维护，这个后面会介绍。
 
 下面我们就来看其构造函数的具体实现：
